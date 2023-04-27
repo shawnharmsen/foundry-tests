@@ -52,3 +52,41 @@
   optimism = "https://optimism-mainnet.infura.io/v3/${API_KEY_INFURA}"
   polygon = "https://polygon-mainnet.infura.io/v3/${API_KEY_INFURA}"
   sepolia = "https://sepolia.infura.io/v3/${API_KEY_INFURA}"
+
+[profile.forge]
+version = "0.2.0"
+
+[profile.test]
+verbosity = 3
+ffi = false
+block_number = 1
+chain_id = 31337
+gas_limit = "18446744073709551615"
+gas_price = 0
+block_base_fee_per_gas = 0
+block_coinbase = "0x0000000000000000000000000000000000000000"
+block_timestamp = 1
+block_difficulty = 0
+gas_reports = ["*"]
+no_storage_caching = false
+block_gas_limit = 10000000
+memory_limit = 33554432
+names = false
+sizes = false
+
+[fuzz]
+runs = 2000
+max_test_rejects = 65536
+seed = "0x1234567890abcdef"
+dictionary_weight = 40
+include_storage = true
+include_push_bytes = true
+
+[invariant]
+runs = 1024
+depth = 15
+fail_on_revert = false
+call_override = false
+dictionary_weight = 80
+include_storage = true
+include_push_bytes = true
